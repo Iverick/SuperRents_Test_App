@@ -3,8 +3,13 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>{% block title %}Welcome to Super Rents{% endblock %}</title>
-  <a href="{% url 'rent:homepage' %}">Welcome to Super Rents</a>
+  <title>{% block title %}Welcome to SuperRents{% endblock %}</title>
+  <link 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" 
+    rel="stylesheet" 
+    crossorigin="anonymous">
+  <a href="{% url 'rent:homepage' %}">Welcome to SuperRents</a>
   <style>
     .expires-soon {
       background-color: #FF0000;

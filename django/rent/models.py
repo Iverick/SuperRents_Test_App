@@ -49,7 +49,7 @@ class Property(models.Model):
     property_type = models.IntegerField(choices=PROPERTY_TYPE, default=HOUSING)
     description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    length = models.IntegerField(validators=[MaxValueValidator(120)])
+    rent_length = models.IntegerField(validators=[MaxValueValidator(120)])
     vacant = models.BooleanField(default=True)
     objects = PropertyManager()
 

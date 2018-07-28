@@ -9,7 +9,6 @@
   
   {% for property in object_list %}
     <div {% if expires_soon %}class="expires-soon"{% endif %}>
-      {{ expires_soon }}
       <p>Address: {{ property.address }}</p>
       <p>Location: {{ property.city }}</p>
       <p>Owner's name: {{ property.owner.first_name }} {{ property.owner.last_name }}</p>
