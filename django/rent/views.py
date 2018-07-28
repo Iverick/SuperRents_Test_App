@@ -1,4 +1,7 @@
+from datetime import date, datetime, timedelta
+
 from django.shortcuts import render
+from django.utils import timezone
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 
@@ -26,5 +29,26 @@ class ListVacantProperties(ListView):
         return qs
 
 
+# http://localhost:8000/rented-properties/
 class ListRentedProperties(ListView):
-    pass
+    '''
+    View lists all rented properties.
+    '''
+    template_name = 'rent/list_rented_properties.html'
+
+    def get_queryset(self):
+        qs = Property.objects.get_rented_properties()
+        return qs
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['expires_soon'] = self.check_expiration_date()
+        return ctx
+
+    def check_expiration_date(self):
+        # counting 30 days from now
+        today = date.today()
+        expires_soon = today + timedelta(days=30)
+        
+        for object in self.get_queryset():
+            return datetime.date(object.contract.end_date) < expires_soon

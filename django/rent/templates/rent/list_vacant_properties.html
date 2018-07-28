@@ -6,20 +6,21 @@
 
 {% block main %}
   <h1>Currently vacant Properties.</h1>
-  <div>
-    {% for property in object_list %}
-      <div>
-        <p>Address: {{ property.address }}</p>
-        <p>Location: {{ property.city }}</p>
-        <textarea name="" id="" cols="25" rows="8">
-          {{ property.description }}
-        </textarea>
-        <p>Monthly fee: ${{ property.price }}</p>
-        <p>Owner's name: {{ property.owner.first_name }} {{ property.owner.last_name }}</p>
-        <p>Owner's email: {{ property.owner.email }}</p>
-        <p>Owner's phone number: {{ property.owner.phone_number }}</p>
-        <br>
-      </div>
-    {% endfor %}
-  </div>
+  
+  {% for property in object_list %}
+    <div>
+      <p>Address: {{ property.address }}</p>
+      <p>Location: {{ property.city }}</p>
+      <textarea name="" id="" cols="25" rows="8">
+        {{ property.description }}
+      </textarea>
+      <p>Monthly fee: ${{ property.price }}</p>
+      <p>Rent's period(in months): {{ property.length }}</p>
+      <p>Owner's name: {{ property.owner.first_name }} {{ property.owner.last_name }}</p>
+      <p>Owner's email: {{ property.owner.email }}</p>
+      <p>Owner's phone number: {{ property.owner.phone_number }}</p>
+    </div>
+    <br>
+  {% endfor %}
+  
 {% endblock %}

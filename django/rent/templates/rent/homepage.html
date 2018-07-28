@@ -11,8 +11,9 @@
     {% else %}
       <p>Please register to make your rental ad.</p>
     {% endif %}
-    <a href="{% url 'rent:list_rented_properties' %}">Click here to see all properties currently rented out.</a>
     -->
-    <a href="{% url 'rent:vacant_properties' %}">Click here if you want to rent available property.</a>
+    <a href="{% url 'rent:list_rented_properties' %}">Click here to see all properties currently rented out</a>
+    <br>
+    <a href="{% url 'rent:vacant_properties' %}">Click here if you want to rent available property</a>
   </div>
 {% endblock %}

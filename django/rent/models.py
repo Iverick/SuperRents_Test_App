@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator
 from django.db import models
 
 
@@ -31,7 +32,7 @@ class Property(models.Model):
 
     HOUSING = 0
     COMMERCIAL = 1
-    PROPRETY_TYPE = (
+    PROPERTY_TYPE = (
         (HOUSING, 'Housing'),
         (COMMERCIAL, 'Commercial property'),
     )
@@ -45,24 +46,23 @@ class Property(models.Model):
     )
     address = models.CharField(max_length=70)
     city = models.CharField(max_length=50)
-    property_type = models.IntegerField(choices=PROPRETY_TYPE, default=HOUSING)
+    property_type = models.IntegerField(choices=PROPERTY_TYPE, default=HOUSING)
     description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    length = models.IntegerField(validators=[MaxValueValidator(120)])
     vacant = models.BooleanField(default=True)
     objects = PropertyManager()
 
     class Meta:
         ordering = ('price',)
+        verbose_name_plural = ('Properties')
 
     def __str__(self):
         return self.address + ' ' + self.city
 
 
 class RentalContract(models.Model):
-    '''
-    It's currently possible to add a RentalContract to a vacant property which
-        is obviously looks like a stupid idea.
-    '''
+
     property_id = models.OneToOneField(
         Property,
         related_name='contract',
@@ -77,13 +77,19 @@ class RentalContract(models.Model):
     class Meta:
         ordering = ('end_date',)
 
+    def __str__(self):
+        return str(self.property_id)
+
 
 class RentalPayment(models.Model):
 
     contract_id = models.OneToOneField(
         RentalContract,
-        related_name='contract',
+        related_name='payment',
         on_delete=models.CASCADE
     )
     account_balance = models.DecimalField(max_digits=10, decimal_places=2)
     payment_date = models.DateTimeField()
+
+    def __str__(self):
+        return str(self.contract_id.property_id)
