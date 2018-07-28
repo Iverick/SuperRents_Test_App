@@ -78,7 +78,6 @@ class RentalContract(models.Model):
         ordering = ('end_date',)
 
 
-'''
 class RentalPayment(models.Model):
 
     contract_id = models.OneToOneField(
@@ -88,4 +87,3 @@ class RentalPayment(models.Model):
     )
     account_balance = models.DecimalField(max_digits=10, decimal_places=2)
     payment_date = models.DateTimeField()
-'''
