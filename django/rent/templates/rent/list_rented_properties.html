@@ -8,8 +8,7 @@
   <h1>Our Rented Properties.</h1>
   
   {% for property in object_list %}
-    <div {% if property.expires_soon %}class="expires-soon"{% endif %}>
-      {{ expires_soon }}
+    <div class="{% if expires_soon %}expires-soon{% else %}not-expires{% endif %}">
       <p>Address: {{ property.address }}</p>
       <p>Location: {{ property.city }}</p>
       <p>Owner's name: {{ property.owner.first_name }} {{ property.owner.last_name }}</p>

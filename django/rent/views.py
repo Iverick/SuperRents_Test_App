@@ -38,10 +38,11 @@ class ListVacantProperties(ListView):
 
 
 # http://localhost:8000/rented-properties/
+'''
 class ListRentedProperties(ListView):
-    '''
+    
     View lists all rented properties.
-    '''
+    
     template_name = 'rent/list_rented_properties.html'
 
     def get_queryset(self):
@@ -51,6 +52,7 @@ class ListRentedProperties(ListView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['expires_soon'] = self.check_expiration_date()
+        print (ctx)
         return ctx
 
     def check_expiration_date(self):
@@ -62,7 +64,6 @@ class ListRentedProperties(ListView):
             return datetime.date(object.contract.end_date) < expires_soon
 
 
-'''
 # http://localhost:8000/rented-properties/
 class ListRentedProperties(TemplateView):
 
