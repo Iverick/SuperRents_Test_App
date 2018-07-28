@@ -44,6 +44,7 @@ class Property(models.Model):
     description = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     vacant = models.BooleanField(default=True)
+    objects = PropertyManager()
 
     class Meta:
         ordering = ('price',)
@@ -53,20 +54,23 @@ class Property(models.Model):
 
 
 class RentalContract(models.Model):
-
+    '''
+    It's currently possible to add a RentalContract to a vacant property which
+        is obviously looks like a stupid idea.
+    '''
     property_id = models.OneToOneField(
         Property,
         related_name='contract',
         on_delete=models.CASCADE
     )
-    # frankly adding a Tenant model would have been a great idea
+    # frankly adding a Tenant model would have been nice
     tenant_first_name = models.CharField(max_length=140)
     tenant_last_name = models.CharField(max_length=140)
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(auto_now=False)
 
     class Meta:
-        ordering = ('end',)
+        ordering = ('end_date',)
 
 
 '''

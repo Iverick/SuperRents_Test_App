@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <h1>Here you can see a list of currently vacant Properties.</h1>
+  <div>
+    {% for property in object_list %}
+      <div>
+        <p>{{ property.address }}</p>
+        <p>{{ property.city }}</p>
+        <textarea name="" id="" cols="25" rows="8">
+          {{ property.description }}
+        </textarea>
+        <p>{{ property.price }}</p>
+        <p>{{ property.owner.first_name }} {{ property.owner.last_name }}</p>
+        <p>{{ property.owner.email }}</p>
+        <p>{{ property.owner.phone_number }}</p>
+        <br>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
