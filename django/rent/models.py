@@ -12,7 +12,7 @@ class Owner(models.Model):
     phone_number = models.CharField(max_length=12)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return "{} {}".format(self.first_name, self.last_name)
 
 
 class PropertyManager(models.Manager):
@@ -58,7 +58,7 @@ class Property(models.Model):
         verbose_name_plural = ('Properties')
 
     def __str__(self):
-        return self.address + ' ' + self.city
+        return "{} {}".format(self.address, self.city)
 
 
 class RentalContract(models.Model):
@@ -71,14 +71,14 @@ class RentalContract(models.Model):
     # frankly adding a Tenant model would have been nice
     tenant_first_name = models.CharField(max_length=140)
     tenant_last_name = models.CharField(max_length=140)
-    start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(auto_now=False)
+    start_date = models.DateField(auto_now_add=True)
+    end_date = models.DateField(auto_now=False)
 
     class Meta:
         ordering = ('end_date',)
 
     def __str__(self):
-        return str(self.property_id)
+        return "{}, {}".format(self.property_id, self.end_date)
 
 
 class RentalPayment(models.Model):
@@ -89,7 +89,7 @@ class RentalPayment(models.Model):
         on_delete=models.CASCADE
     )
     account_balance = models.DecimalField(max_digits=10, decimal_places=2)
-    payment_date = models.DateTimeField()
+    payment_date = models.DateField()
 
     def __str__(self):
-        return str(self.contract_id.property_id)
+        return "{}".format(self.contract_id.property_id)

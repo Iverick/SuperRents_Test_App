@@ -38,55 +38,18 @@ class ListVacantProperties(ListView):
 
 
 # http://localhost:8000/rented-properties/
-'''
-class ListRentedProperties(ListView):
-    
+def list_rented_properties(request):
+    '''
     View lists all rented properties.
-    
-    template_name = 'rent/list_rented_properties.html'
-
-    def get_queryset(self):
-        qs = Property.objects.get_rented_properties()
-        return qs
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx['expires_soon'] = self.check_expiration_date()
-        print (ctx)
-        return ctx
-
-    def check_expiration_date(self):
-        # counting 30 days from now
-        today = date.today()
-        expires_soon = today + timedelta(days=30)
-        
-        for object in self.get_queryset():
-            return datetime.date(object.contract.end_date) < expires_soon
-
-
-# http://localhost:8000/rented-properties/
-class ListRentedProperties(TemplateView):
-
-    View lists all rented properties.
-
-    template_name = 'rent/list_rented_properties.html'
+    '''
     properties = Property.objects.get_rented_properties()
-
-    for property_ in properties:
-        property_['expires_soon'] = self.check_expiration_date()
-
-    def get_context_data(self, **kwargs):
-        context = ({
-            'property_': property_
-        })
-        return context
-
-    def check_expiration_date(self):
-        # counting 30 days from now
-        today = date.today()
-        expires_soon = today + timedelta(days=30)
-        
-        if datetime.date(property_.contract.end_date) < expires_soon:
-            return True
-        return False
-'''
+    # counting 30 days from today for an expires_soon context property.
+    # will be used in a template later.
+    today = date.today()
+    expires_soon = today + timedelta(days=30)
+    context = {
+        'properties': properties,
+        'expires_soon': expires_soon
+    }
+    # print(context)
+    return render(request, 'rent/list_rented_properties.html', context)

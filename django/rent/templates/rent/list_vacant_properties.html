@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block main %}
-  <h1>Currently vacant Properties.</h1>
+  <h1>Currently vacant Properties</h1>
   
   {% for property in object_list %}
-    <div>
+    <div class="property-element">
       <p>Address: {{ property.address }}</p>
       <p>Location: {{ property.city }}</p>
       <textarea name="" id="" cols="25" rows="8">

@@ -16,7 +16,7 @@ urlpatterns = [
     ),
     url(
         r'^rented-properties/$',
-        views.ListRentedProperties.as_view(),
+        views.list_rented_properties,
         name='list_rented_properties',
     ),
     url(

@@ -5,10 +5,16 @@
 {% endblock %}
 
 {% block main %}
-  <h1>Our Rented Properties.</h1>
+  <h1>Our Rented Properties</h1>
   
-  {% for property in object_list %}
-    <div class="{% if expires_soon %}expires-soon{% else %}not-expires{% endif %}">
+  <!-- If tag in a following code checks whether contract end date is less than expries_soon context property and applies different styles to a div based on result of an equation. This may violate "dumb template" rule but really it's an only solution worked out for me -->
+  {% for property in properties %}
+    <div class="
+      {% if property.contract.end_date < expires_soon %}
+        rent-expires-soon
+      {% else %}
+        property-element
+      {% endif %}">
       <p>Address: {{ property.address }}</p>
       <p>Location: {{ property.city }}</p>
       <p>Owner's name: {{ property.owner.first_name }} {{ property.owner.last_name }}</p>
