@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='property',
-            name='length',
+            name='rent_length',
             field=models.IntegerField(default=10, max_length=3),
             preserve_default=False,
         ),
