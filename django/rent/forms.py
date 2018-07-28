@@ -7,11 +7,11 @@ class CreatePropertyForm(forms.ModelForm):
 
     owner = forms.ModelChoiceField(
         queryset=Owner.objects.all(),
-        widget=forms.RadioSelect,
+        widget=forms.Select,
     )
 
     description = forms.CharField(
-        widget =forms.Textarea,
+        widget=forms.Textarea,
     )
 
 
