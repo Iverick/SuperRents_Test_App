@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <div>
+    <h2>Welcome to Super Rents world's fastest growing online renting Marketplace in Housing Market.</h2>
+    <p>You can list your property for a rent or find a home of your dream with us!</p>
+    <br>
+    <!--
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'rent:add_property' %}">Click here if you want to list your property for rent on our Marketplace.</a>
+    {% else %}
+      <p>Please register to make your rental ad.</p>
+    {% endif %}
+    <a href="{% url 'rent:list_rented_properties' %}">Click here to see all properties currently rented out.</a>
+    -->
+    <a href="{% url 'rent:vacant_properties' %}">Click here if you want to rent available property.</a>
+  </div>
+{% endblock %}

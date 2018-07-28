@@ -21,6 +21,11 @@ class PropertyManager(models.Manager):
         qs = qs.filter(vacant=True)
         return qs
 
+    def get_rented_properties(self):
+        qs = self.get_queryset()
+        qs = qs.filter(vacant=False)
+        return qs
+
 
 class Property(models.Model):
 
@@ -74,12 +79,13 @@ class RentalContract(models.Model):
 
 
 '''
-Having some problems with integrating Payment model to a project right now.
-Need to have a second thought about a final database schema.
-
-
 class RentalPayment(models.Model):
 
-    contract_id = 
-    montly_payment
+    contract_id = models.OneToOneField(
+        RentalContract,
+        related_name='contract',
+        on_delete=models.CASCADE
+    )
+    account_balance = models.DecimalField(max_digits=10, decimal_places=2)
+    payment_date = models.DateTimeField()
 '''
