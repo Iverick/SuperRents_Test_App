@@ -9,11 +9,9 @@ class CreatePropertyForm(forms.ModelForm):
         queryset=Owner.objects.all(),
         widget=forms.Select,
     )
-
     description = forms.CharField(
         widget=forms.Textarea,
     )
-
 
     class Meta:
         model = Property

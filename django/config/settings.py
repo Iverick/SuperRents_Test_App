@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'rent',
 
     'crispy_forms',
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',

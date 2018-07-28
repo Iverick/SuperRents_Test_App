@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils import timezone
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
@@ -19,6 +20,9 @@ class AddProperty(CreateView):
     
     form_class = CreatePropertyForm
     template_name = 'rent/add_property.html'
+
+    def get_success_url(self):
+        return reverse('rent:homepage')
 
 
 # http://localhost:8000/vacant-properties/
