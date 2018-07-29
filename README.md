@@ -1,4 +1,4 @@
-# Rent App
+# Rental App
 
 House Renting platform powered by Django framework. It was created following requirement of a test task
 
