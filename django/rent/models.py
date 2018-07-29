@@ -92,4 +92,7 @@ class RentalPayment(models.Model):
     payment_date = models.DateField()
 
     def __str__(self):
-        return "{}".format(self.contract_id.property_id)
+        return "{}, ${}".format(
+            self.contract_id.property_id,
+            self.account_balance
+        )
