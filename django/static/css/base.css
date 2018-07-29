@@ -1,0 +1,14 @@
+body { 
+  margin: 10px;
+  padding: 5px;
+}
+
+.rent-expires-soon {
+  margin-top: 5px;
+  background-color: #FF0000;
+}
+
+.property-element {
+  margin-top: 5px;
+  background-color: #ffffcc;
+}
