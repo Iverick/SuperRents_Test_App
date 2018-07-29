@@ -1,3 +1,12 @@
+## Setting up a posgresql database
+
+CREATE DATABASE property_rental_db;
+CREATE USER property_rental_db;
+GRANT ALL ON DATABASE property_rental_db to "property_rental_db";
+ALTER USER property_rental_db PASSWORD 'dev';
+ALTER USER property_rental_db CREATEDB;
+
+
 ## Rent App
 
 Simple Django House Renting app
