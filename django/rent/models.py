@@ -4,6 +4,9 @@ from django.db import models
 
 
 class Owner(models.Model):
+    '''
+    Owner.models
+    '''
     # Would have been nice to make Owner an instance of User model.
     # Avoided that for simplicity sake.
     owner = models.OneToOneField(
@@ -21,7 +24,9 @@ class Owner(models.Model):
 
 
 class PropertyManager(models.Manager):
-
+    '''
+    Manager for a Property model
+    '''
     def get_vacant_properties(self):
         qs = self.get_queryset()
         qs = qs.filter(vacant=True)
@@ -34,7 +39,9 @@ class PropertyManager(models.Manager):
 
 
 class Property(models.Model):
-
+    '''
+    Property.Owner.models
+    '''
     HOUSING = 0
     COMMERCIAL = 1
     PROPERTY_TYPE = (
@@ -67,7 +74,9 @@ class Property(models.Model):
 
 
 class RentalContract(models.Model):
-
+    '''
+    RentalContract.Property.Owner.models
+    '''
     property_id = models.OneToOneField(
         Property,
         related_name='contract',
@@ -86,7 +95,9 @@ class RentalContract(models.Model):
 
 
 class RentalPayment(models.Model):
-
+    '''
+    RentalPayment.RentalContract.Property.Owner.models
+    '''
     contract_id = models.OneToOneField(
         RentalContract,
         related_name='payment',

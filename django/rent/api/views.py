@@ -1,7 +1,8 @@
+# rest framework
 from rest_framework import viewsets
-
+# rent app imports
 from rent.models import Property
-
+# local imports
 from rent.api.serializers import PropertySerializer
 
 

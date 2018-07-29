@@ -1,6 +1,8 @@
+# django imports
 from django.conf.urls import url
-
+# local imports
 from rent import views
+
 
 app_name = 'rent'
 urlpatterns = [
