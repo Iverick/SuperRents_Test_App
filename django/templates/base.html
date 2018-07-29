@@ -9,7 +9,6 @@
     integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" 
     rel="stylesheet" 
     crossorigin="anonymous">
-  <a href="{% url 'rent:homepage' %}">Welcome to SuperRents</a>
   <style>
     .rent-expires-soon {
       background-color: #FF0000;
@@ -21,8 +20,16 @@
 </head>
 
 <body>
-  {% block main %}
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+      <a href="{% url 'rent:homepage' %}">Welcome to SuperRents</a>
+    </h5>
+  </div>
 
-  {% endblock %}
+  <div class="container">
+    {% block main %}
+
+    {% endblock %}
+  </div>
 </body>
 </html>

@@ -7,8 +7,9 @@
 {% block main %}
   <h1>Currently vacant Properties</h1>
   
+  <div class="card-deck mb-3 text-center">
   {% for property in object_list %}
-    <div class="property-element">
+    <div class="property-element card mb-4 shadow-sm">
       <p>Address: {{ property.address }}</p>
       <p>Location: {{ property.city }}</p>
       <textarea name="" id="" cols="25" rows="8">
@@ -22,5 +23,6 @@
     </div>
     <br>
   {% endfor %}
+  </div>
   
 {% endblock %}

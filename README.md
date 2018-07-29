@@ -1,4 +1,4 @@
-# Rent App
+# Rental App
 
 House Renting platform powered by Django framework. It was created following requirement of a test task
 
@@ -25,7 +25,7 @@ git clone https://github.com/Iverick/rental_app_test_task
 
 ### Open a main project folder
 ```
-cd rental_app
+cd rental_app_test_task
 ```
 
 ### Create a virtual environment using virtualenvwrapper

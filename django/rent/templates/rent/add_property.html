@@ -6,12 +6,16 @@
 {% endblock %}
 
 {% block main %}
-  <h1>Fill out following form to add your Property to our database</h1>
+  <div class="py-5 text-center">
+    <h1>Fill out following form to add your Property to our database</h1>
+  </div>
   
-  <form method="post">
-  	{% csrf_token %}
-  	{{ form | crispy }}
-  	<button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+  <div class="col-md-8 order-md-1">
+    <form method="post">
+      {% csrf_token %}
+      {{ form | crispy }}
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
   
 {% endblock %}
