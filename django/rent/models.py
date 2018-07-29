@@ -1,10 +1,15 @@
 from django.core.validators import MaxValueValidator
+from django.conf import settings
 from django.db import models
 
 
 class Owner(models.Model):
     # Would have been nice to make Owner an instance of User model.
     # Avoided that for simplicity sake.
+    owner = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     first_name = models.CharField(max_length=140)
     last_name = models.CharField(max_length=140)
     born = models.DateField()
@@ -68,7 +73,6 @@ class RentalContract(models.Model):
         related_name='contract',
         on_delete=models.CASCADE
     )
-    # frankly adding a Tenant model would have been nice
     tenant_first_name = models.CharField(max_length=140)
     tenant_last_name = models.CharField(max_length=140)
     start_date = models.DateField(auto_now_add=True)

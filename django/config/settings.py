@@ -116,15 +116,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-# Static files directory
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # REST Framework settings
@@ -142,3 +138,8 @@ REST_FRAMEWORK = {
         'anon': '30/minute',
     },
 }
+
+
+# Django Crispy Forms will use Bootstrap 4 to create forms
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
