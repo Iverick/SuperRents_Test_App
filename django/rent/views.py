@@ -38,18 +38,21 @@ class ListVacantProperties(ListView):
 
 
 # http://localhost:8000/rented-properties/
-def list_rented_properties(request):
+class ListRentedProperties(ListView):
     '''
-    View lists all rented properties.
+    View lists all rented Properties
     '''
-    properties = Property.objects.get_rented_properties()
-    # counting 30 days from today for an expires_soon context property.
-    # will be used in a template later.
-    today = date.today()
-    expires_soon = today + timedelta(days=30)
-    context = {
-        'properties': properties,
-        'expires_soon': expires_soon
-    }
-    # print(context)
-    return render(request, 'rent/list_rented_properties.html', context)
+    template_name = 'rent/list_rented_properties.html'
+
+    def get_queryset(self):
+        qs = Property.objects.get_rented_properties()
+        return qs
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['30_days'] = self.count_30_days_from_now()
+        return ctx
+
+    def count_30_days_from_now(self):
+        today = date.today()
+        return today + timedelta(days=30)
