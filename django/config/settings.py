@@ -69,11 +69,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'property_rental_db',
-        'USER': 'property_rental_db',
-        'PASSWORD': 'dev',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
+        'PORT': '5432'
     }
 }
 
