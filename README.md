@@ -100,7 +100,7 @@ python manage.py runserver
 
 # Docker
 
-You can also run this project using Docker.
+You can also run this project using Docker (some functionality could be missed though).
 
 You need to have docker, docker-machine and virtualbox installed and configured to use this option.
 
