@@ -38,4 +38,3 @@ media_root/
 tasks.todo
 secret_key.txt
 info.txt
-.env
