@@ -9,10 +9,6 @@ class Owner(models.Model):
     '''
     # Would have been nice to make Owner an instance of User model.
     # Avoided that for simplicity sake.
-    owner = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
     first_name = models.CharField(max_length=140)
     last_name = models.CharField(max_length=140)
     born = models.DateField()
