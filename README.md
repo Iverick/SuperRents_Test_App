@@ -95,3 +95,56 @@ python manage.py runserver
 ```http://localhost:8000/rented-properties/``` displays list of rented properties
 
 ```http://localhost:8000/api/properties/?format=json``` API endpoint to display a list of all properties added to a database
+
+
+
+# Docker
+
+You can also run this project using Docker.
+
+You need to have docker, docker-machine and virtualbox installed and configured to use this option.
+
+
+### Pull code from a github repo
+```
+git clone --branch dockerising-project https://github.com/Iverick/rental_app_test_task/
+```
+
+### Open a main project folder
+```
+cd rental_app_test_task
+```
+
+### Setup docker machine
+
+Create a virtual machine
+```
+docker-machine create -d virtualbox dev;
+```
+Then point docker to a dev machine
+```
+eval $(docker-machine env dev)
+```
+
+### Build images and start services
+```
+docker-compose build
+```
+```
+docker-compose up -d
+```
+
+### Make database migrations
+```
+docker-compose run web /usr/local/bin/python manage.py migrate
+```
+
+### Grab an IP assosiated with your virtual machine
+```
+docker-machine ip dev
+```
+
+### Run homepage of a project on your development machine
+```
+<ip_grabbed_previously>/home/
+```
