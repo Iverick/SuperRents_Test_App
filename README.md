@@ -1,11 +1,11 @@
 # Rental App
 
-House Renting platform powered by Django framework. It was created following requirement of a test task
+House Renting platform powered by Django framework. It was created following requirements of a test task
 
 
 # Prerequisites
 
-You need to have Python3(I used version 3.5.2 for developing), Virtualenvwrapper and PostgreSQL database engine already installed and configured on your machine to run this app.
+You need to have Python3 (I used version 3.5.2 for developing), Virtualenvwrapper and PostgreSQL database engine already installed and configured on your machine to run this app.
 
 ### Environment Variables
 
@@ -94,9 +94,9 @@ python manage.py runserver
 
 ```http://localhost:8000/rented-properties/``` displays list of rented properties
 
-```http://localhost:8000/api/properties/?format=json``` API endpoint to display a list of all properties added to a database
+```http://localhost:8000/api/properties/?format=json``` API endpoint displays a list of all properties added to a database
 
-
+#
 
 # Docker
 
