@@ -36,7 +36,7 @@ mkvirtualenv rental_app
 ### Add secret key to virtualenv
 
 Run ```echo SECRET_KEY='<secret_key_value>' >> .env``` command in terminal.
-Open ```~/.virtualenvs/rental_app/bin``` path in separate terminal and add ```set -a; source ~/rental_app_test_task/.env; set +a``` command to a postactivate script.
+Open ```~/.virtualenvs/rental_app/bin``` path in separate terminal and add ```set -a; source ~/rental_app_test_task/.env; set +a``` command to a ```postactivate``` script.
 
 You may need to restart virtualenv at this point.
 
