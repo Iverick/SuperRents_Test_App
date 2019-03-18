@@ -1,6 +1,6 @@
 # Rental App
 
-House Renting platform powered by Django framework. It was created following requirements of a test task
+House Renting platform powered by Django framework.
 
 
 # Prerequisites
@@ -85,7 +85,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-### List of available web pages
+### List of URLs
 ```http://localhost:8000/home/``` home page of an application
 
 ```http://localhost:8000/add-property/``` displays a form to submit a property into a database
